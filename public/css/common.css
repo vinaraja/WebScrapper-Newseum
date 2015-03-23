@@ -1,0 +1,23 @@
+.nav-pills{ border-bottom:none; font-weight: normal;font-size: 16px;float:none;}
+	
+	html {
+		margin:50px 150px 50px 150px;
+	}
+	@media (max-width: 480px) { 
+		.nav-pills > li, .nav-pills>li>a:link, .nav-pills>li>a:hover {
+			margin-top:5px;
+			border-bottom:none;
+			float:none;
+			font-size: 16px;
+		}
+		html { margin:50px 10px 0px 10px;}
+
+	}
+	.btn-primary {background-color:#C37700;}
+	
+	.btn-primary:link, .btn-primary:visited, .btn-primary:active, .btn-primary:hover {background-color:#C37700;}
+	
+	.nav-pills>li>a:link, .nav-pills>li>a:visited, .nav-pills>li>a:active, .nav-pills>li>a:hover, .open .nav-pills {
+		background:#428bca !important; 
+		color:#FFF !important;
+	}

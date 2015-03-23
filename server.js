@@ -9,6 +9,10 @@ var http=require ('http');
 var links=[];
 var jpg=[];
 var flag=true;
+var x;
+var y;
+var z;
+var u;
 var app = connect()
 	.use(connect.bodyParser())
 	.use(connect.static('public'))
@@ -82,11 +86,55 @@ var app = connect()
 	var parsed_url = url.parse(req.url);
 		var uri = parsed_url.pathname;
 		if(uri === "/test"){
-			var x=random(0,jpg.length);
+			x=random(0,jpg.length);
 			console.log(x);
+			if(x!=y&&x!=u&&x!=z){
 	   res.writeHead(200, {"Content-Type": "text/plain"});	
 	     						
 		res.end(jpg[x]);
+			}
+			else
+			x=random(0,jpg.length);
+		//console.log(jpg.length);
+	   
+		}
+		if(uri === "/test2"){
+			y=random(0,jpg.length);
+			console.log(y);
+			if(y!=x&&y!=u&&y!=z){
+	   res.writeHead(200, {"Content-Type": "text/plain"});	
+	     						
+		res.end(jpg[y]);
+			}
+			else
+			y=random(0,jpg.length);
+		//console.log(jpg.length);
+	   
+		}
+		if(uri === "/test3"){
+			z=random(0,jpg.length);
+			console.log(z);
+			if(z!=x&&z!=u&&z!=y){
+				
+	   res.writeHead(200, {"Content-Type": "text/plain"});	
+	     						
+		res.end(jpg[z]);
+			}
+			else
+			z=random(0,jpg.length);
+		//console.log(jpg.length);
+	   
+		}
+		if(uri === "/test4"){
+			u=random(0,jpg.length);
+			console.log(u);
+			if(u!=x&&u!=z&&u!=y)
+	   {
+		   res.writeHead(200, {"Content-Type": "text/plain"});	
+	       res.end(jpg[u]);
+	   }
+	   else
+	     u=random(0,jpg.length);
 		//console.log(jpg.length);
 	   
 		}

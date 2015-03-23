@@ -2,21 +2,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Newseum</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+		padding-top: 3px;
+		padding-right: 50px;
+		padding-bottom: 5px;
+		padding-left: 50px;
+	 background: -webkit-linear-gradient( #DDD, #EEE); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient( #DDD, #EEE); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( #DDD, #EEE); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( #DDD, #EEE); /* Standard syntax (must be last) */
+	}
+</style>
 </head>
 
 <body>
-<h1>Hi</h1>
-<div id="test"></div>
+<div class="row">
+        <div id="test" class="col-lg-6"></div>
+        <div id="test2" class="col-lg-6"></div>
+</div>
+<br><br><br>
+<div class="row">
+            <div id="test3" class="col-lg-6"></div>
+            <div id="test4" class="col-lg-6"></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
-var link=[];
 $( document ).ready(function() 
 				{
-					var interval=setInterval(onInterval,10000);
+					var interval=setTimeout(onInterval,5000);
+					var intern=setInterval(onInterval,600000);
 				});
-function onInterval(){	
-	console.log("interval");		
+function onInterval(){			
 var myhttp = new XMLHttpRequest();
 var url = "http://localhost:3600/test";
 myhttp.open('GET', url, true);
@@ -24,7 +46,7 @@ myhttp.open('GET', url, true);
            				if ((myhttp.readyState == 4) && (myhttp.status == 200)){
                			//alert(myhttp.responseText);
 						data=myhttp.responseText;
-						$('#test').html("<img width='100%' src="+data+"\>")
+						$('#test').html("<img width='100%' height='40%' src="+data+"\>")
            			}
            			else if ((myhttp.readyState == 4) && (myhttp.status != 200))
            			{
@@ -32,6 +54,51 @@ myhttp.open('GET', url, true);
            			}
 				}
 				myhttp.send();
+var myhttp2 = new XMLHttpRequest();
+var url2 = "http://localhost:3600/test2";
+myhttp2.open('GET', url2, true);
+       			myhttp2.onreadystatechange = function() {        
+           				if ((myhttp2.readyState == 4) && (myhttp2.status == 200)){
+               			//alert(myhttp2.responseText);
+						data1=myhttp2.responseText;
+						$('#test2').html("<img width='100%' height='40%' src="+data1+"\>")
+           			}
+           			else if ((myhttp2.readyState == 4) && (myhttp2.status != 200))
+           			{
+               			console.log("Error in Connection");
+           			}
+				}
+				myhttp2.send();
+var myhttp3 = new XMLHttpRequest();
+var url3 = "http://localhost:3600/test3";
+myhttp3.open('GET', url3, true);
+       			myhttp3.onreadystatechange = function() {        
+           				if ((myhttp3.readyState == 4) && (myhttp3.status == 200)){
+               			//alert(myhttp3.responseText);
+						data3=myhttp3.responseText;
+						$('#test3').html("<img width='100%' height='40%' src="+data3+"\>")
+           			}
+           			else if ((myhttp3.readyState == 4) && (myhttp3.status != 200))
+           			{
+               			console.log("Error in Connection");
+           			}
+				}
+				myhttp3.send();
+var myhttp4 = new XMLHttpRequest();
+var url4 = "http://localhost:3600/test4";
+myhttp4.open('GET', url4, true);
+       			myhttp4.onreadystatechange = function() {        
+           				if ((myhttp4.readyState == 4) && (myhttp4.status == 200)){
+               			//alert(myhttp4.responseText);
+						data4=myhttp4.responseText;
+						$('#test4').html("<img width='100%' height='40%' src="+data4+"\>")
+           			}
+           			else if ((myhttp4.readyState == 4) && (myhttp4.status != 200))
+           			{
+               			console.log("Error in Connection");
+           			}
+				}
+				myhttp4.send();
 
 }
 
