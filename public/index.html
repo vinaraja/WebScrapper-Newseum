@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1>Hi</h1>
+<div id="test"></div>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+var link=[];
+$( document ).ready(function() 
+				{
+					var interval=setInterval(onInterval,10000);
+				});
+function onInterval(){	
+	console.log("interval");		
+var myhttp = new XMLHttpRequest();
+var url = "http://localhost:3600/test";
+myhttp.open('GET', url, true);
+       			myhttp.onreadystatechange = function() {        
+           				if ((myhttp.readyState == 4) && (myhttp.status == 200)){
+               			//alert(myhttp.responseText);
+						data=myhttp.responseText;
+						$('#test').html("<img width='100%' src="+data+"\>")
+           			}
+           			else if ((myhttp.readyState == 4) && (myhttp.status != 200))
+           			{
+               			console.log("Error in Connection");
+           			}
+				}
+				myhttp.send();
+
+}
+
+</script>
+</body>
+</html>
